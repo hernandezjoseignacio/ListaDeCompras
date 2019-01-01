@@ -13,6 +13,14 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ModeloTablaListaDeCompras extends AbstractTableModel{
 
+    public ModeloTablaListaDeCompras(String filtro) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public ModeloTablaListaDeCompras() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public int getRowCount() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

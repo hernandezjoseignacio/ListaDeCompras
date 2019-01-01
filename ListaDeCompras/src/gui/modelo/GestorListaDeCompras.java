@@ -12,5 +12,9 @@ import gui.interfaces.IGestorListaDeCompras;
  * @author HERNANDEZ
  */
 public class GestorListaDeCompras implements IGestorListaDeCompras{
+
+    public static IGestorListaDeCompras instanciar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
