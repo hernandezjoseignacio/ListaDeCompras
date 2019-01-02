@@ -71,7 +71,7 @@ public class GestorListaDeCompras implements IGestorListaDeCompras{
     //+++++++++++++++++++++++++++Leer/EscribirArchivo++++++++++++++++++++++++++++++++++++++++
     
     @Override
-    public String nuevaListaDeCompras(String compra, String unaAnotacion, float unPrecio) {
+    public String nuevaCompra(String compra, String unaAnotacion, float unPrecio) {
         if(compra!=null&&!compra.isEmpty()&&unaAnotacion!=null&&!unaAnotacion.isEmpty()&&unPrecio!=0.0){
             Compra unaCompra = new Compra(compra, unaAnotacion, unPrecio);
             if(!this.listaDeCompras.contains(unaCompra)){
@@ -136,6 +136,11 @@ public class GestorListaDeCompras implements IGestorListaDeCompras{
         return "Compra no encontrada!";
         }
     return "FRACASO";
+    }
+
+    @Override
+    public int obtenerPosicion(Compra unaCompra) {
+        return this.listaDeCompras.indexOf(unaCompra);
     }
     
 

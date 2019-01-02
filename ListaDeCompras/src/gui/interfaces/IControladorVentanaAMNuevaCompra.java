@@ -5,6 +5,7 @@
  */
 package gui.interfaces;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
 /**
@@ -20,6 +21,10 @@ public interface IControladorVentanaAMNuevaCompra {
     public void campoObservacionesKeyPressed(KeyEvent evt);
 
     public void botonVolverKeyPressed(KeyEvent evt);
+
+    public void botonGuardarKeyPressed(ActionEvent evt);
+
+    public void botonVolverClic(ActionEvent evt);
   
     
     

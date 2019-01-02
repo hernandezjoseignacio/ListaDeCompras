@@ -5,6 +5,7 @@
  */
 package gui.vistas;
 
+import gui.controlador.ControladorVentanaListaDeCompras;
 import gui.interfaces.IControladorVentanaListaDeCompras;
 import gui.interfaces.IGestorListaDeCompras;
 import gui.modelo.GestorListaDeCompras;
@@ -286,4 +287,9 @@ public class VentanaListaDeCompras extends javax.swing.JDialog {
     }
 
 
+    public static void main(String[] args) {
+        IControladorVentanaListaDeCompras controladorPrincipal = new ControladorVentanaListaDeCompras();
+    }
+    
+    
 }

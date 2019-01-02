@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface IGestorListaDeCompras {
     
-    public String nuevaListaDeCompras(String compra, String unaAnotacion, float unPrecio);
+    public String nuevaCompra(String compra, String unaAnotacion, float unPrecio);
     
     public Compra dameUnaCompra(String compra);
     
@@ -23,5 +23,7 @@ public interface IGestorListaDeCompras {
     public String borrarUnaCompra(Compra unaCompra);
     
     public String modificarUnaCompra(Compra unaCompra, String compra, String unaAnotacion, float unPrecio);
+
+    public int obtenerPosicion(Compra unaCompra);
     
 }
