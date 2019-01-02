@@ -56,23 +56,33 @@ public class VentanaAMNuevaCompra extends javax.swing.JDialog {
         botonVolver.setMnemonic('v');
         botonVolver.setText("Volver");
         botonVolver.setToolTipText("Volver a la Lista de Compras");
+        botonVolver.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                botonVolverKeyPressed(evt);
+            }
+        });
 
         botonGuardar.setMnemonic('g');
         botonGuardar.setText("Guardar");
         botonGuardar.setToolTipText("Guardar en la Lista el producto a comprar");
 
-        campoNuevaCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNuevaCompraActionPerformed(evt);
+        campoNuevaCompra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                campoNuevaCompraKeyPressed(evt);
             }
         });
 
-        campoPrecio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPrecioActionPerformed(evt);
+        campoPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                campoPrecioKeyPressed(evt);
             }
         });
 
+        campoObservaciones.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                campoObservacionesKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(campoObservaciones);
 
         jLabel4.setText("$");
@@ -116,7 +126,7 @@ public class VentanaAMNuevaCompra extends javax.swing.JDialog {
                     .addComponent(jLabel1)
                     .addComponent(campoNuevaCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -126,26 +136,32 @@ public class VentanaAMNuevaCompra extends javax.swing.JDialog {
                                     .addComponent(jLabel4)
                                     .addComponent(campoPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel2))
-                        .addGap(97, 97, 97))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonVolver)
-                    .addComponent(botonGuardar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botonVolver, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botonGuardar, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPrecioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoPrecioActionPerformed
+    private void campoNuevaCompraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoNuevaCompraKeyPressed
+        this.controlador.campoNuevaCompraKeyPressed(evt);
+    }//GEN-LAST:event_campoNuevaCompraKeyPressed
 
-    private void campoNuevaCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNuevaCompraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoNuevaCompraActionPerformed
+    private void campoPrecioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoPrecioKeyPressed
+        this.controlador.campoPrecioKeyPressed(evt);
+    }//GEN-LAST:event_campoPrecioKeyPressed
+
+    private void campoObservacionesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoObservacionesKeyPressed
+        this.controlador.campoObservacionesKeyPressed(evt);
+    }//GEN-LAST:event_campoObservacionesKeyPressed
+
+    private void botonVolverKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_botonVolverKeyPressed
+        this.controlador.botonVolverKeyPressed(evt);
+    }//GEN-LAST:event_botonVolverKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonGuardar;

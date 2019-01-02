@@ -5,10 +5,22 @@
  */
 package gui.interfaces;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author HERNANDEZ
  */
 public interface IControladorVentanaAMNuevaCompra {
+
+    public void campoNuevaCompraKeyPressed(KeyEvent evt);
+
+    public void campoPrecioKeyPressed(KeyEvent evt);
+
+    public void campoObservacionesKeyPressed(KeyEvent evt);
+
+    public void botonVolverKeyPressed(KeyEvent evt);
+  
+    
     
 }

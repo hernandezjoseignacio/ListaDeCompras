@@ -5,10 +5,23 @@
  */
 package gui.interfaces;
 
+import gui.modelo.Compra;
+import java.util.List;
+
 /**
  *
  * @author HERNANDEZ
  */
 public interface IGestorListaDeCompras {
+    
+    public String nuevaListaDeCompras(String compra, String unaAnotacion, float unPrecio);
+    
+    public Compra dameUnaCompra(String compra);
+    
+    public List<Compra> buscarUnaCompra(String compra);
+    
+    public String borrarUnaCompra(Compra unaCompra);
+    
+    public String modificarUnaCompra(Compra unaCompra, String compra, String unaAnotacion, float unPrecio);
     
 }
