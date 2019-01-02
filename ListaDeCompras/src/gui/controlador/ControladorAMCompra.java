@@ -5,7 +5,6 @@
  */
 package gui.controlador;
 
-import gui.interfaces.IControladorVentanaAMNuevaCompra;
 import gui.interfaces.IGestorListaDeCompras;
 import gui.modelo.Compra;
 import gui.modelo.GestorListaDeCompras;
@@ -15,18 +14,19 @@ import gui.vistas.VentanaListaDeCompras;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import gui.interfaces.IControladorAMCompra;
 
 /**
  *
  * @author HERNANDEZ
  */
-public class ControladorVentanaAMNuevaCompra implements IControladorVentanaAMNuevaCompra{
+public class ControladorAMCompra implements IControladorAMCompra{
     private final VentanaListaDeCompras ventanaListaDeCompras;
     private final VentanaAMCompra ventanaAMCompra;
     private final IGestorListaDeCompras gc = GestorListaDeCompras.instanciar();
     private Compra unaCompra;
     
-    public ControladorVentanaAMNuevaCompra(VentanaListaDeCompras ventanaListaDeCompras,Compra unaCompra) {
+    public ControladorAMCompra(VentanaListaDeCompras ventanaListaDeCompras,Compra unaCompra) {
         this.ventanaListaDeCompras = ventanaListaDeCompras;
         ventanaAMCompra = new VentanaAMCompra(this, ventanaListaDeCompras, true);
         this.unaCompra = unaCompra;

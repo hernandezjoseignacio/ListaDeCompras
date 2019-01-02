@@ -5,20 +5,20 @@
  */
 package gui.vistas;
 
-import gui.interfaces.IControladorVentanaAMNuevaCompra;
+import gui.interfaces.IControladorAMCompra;
 
 /**
  *
  * @author HERNANDEZ
  */
 public class VentanaAMCompra extends javax.swing.JDialog {
-    IControladorVentanaAMNuevaCompra controlador;
+    IControladorAMCompra controlador;
     VentanaListaDeCompras ventanaListaDeCompras;
     
     /**
      * Creates new form VentanaAMNuevaCompra
      */
-    public VentanaAMCompra(IControladorVentanaAMNuevaCompra controlador, VentanaListaDeCompras ventanaListaDeCompras, boolean modal) {
+    public VentanaAMCompra(IControladorAMCompra controlador, VentanaListaDeCompras ventanaListaDeCompras, boolean modal) {
         super(ventanaListaDeCompras, modal);
         initComponents();
         this.controlador = controlador;

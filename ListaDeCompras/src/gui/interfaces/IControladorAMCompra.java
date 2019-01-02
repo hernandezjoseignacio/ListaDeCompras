@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
  *
  * @author HERNANDEZ
  */
-public interface IControladorVentanaAMNuevaCompra {
+public interface IControladorAMCompra {
 
     public void campoNuevaCompraKeyPressed(KeyEvent evt);
 

@@ -5,25 +5,26 @@
  */
 package gui.vistas;
 
-import gui.controlador.ControladorVentanaListaDeCompras;
-import gui.interfaces.IControladorVentanaListaDeCompras;
+import gui.controlador.ControladorListaDeCompras;
 import gui.interfaces.IGestorListaDeCompras;
 import gui.modelo.GestorListaDeCompras;
 import gui.modelo.ModeloTablaListaDeCompras;
+import gui.interfaces.IControladorListaDeCompras;
+import javax.swing.JFrame;
 
 /**
  *
  * @author HERNANDEZ
  */
 public class VentanaListaDeCompras extends javax.swing.JDialog {
-    IControladorVentanaListaDeCompras controlador;
+    IControladorListaDeCompras controlador;
     IGestorListaDeCompras gc = GestorListaDeCompras.instanciar();
     
     /**
      * Creates new form VentanaListaDeCompras
+     * @param controaldor
      */
-    public VentanaListaDeCompras(java.awt.Frame parent, boolean modal,IControladorVentanaListaDeCompras controaldor) {
-        super(parent, modal);
+    public VentanaListaDeCompras(IControladorListaDeCompras controaldor) {
         initComponents();
         this.cargarTabla();
         this.tablaListaDeCompras.getTableHeader().setReorderingAllowed(false);
@@ -72,18 +73,13 @@ public class VentanaListaDeCompras extends javax.swing.JDialog {
         botonSalir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Lista de Compras");
         setResizable(false);
 
         campoBusqueda.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 campoBusquedaFocusGained(evt);
-            }
-        });
-        campoBusqueda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoBusquedaActionPerformed(evt);
             }
         });
         campoBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -221,10 +217,6 @@ public class VentanaListaDeCompras extends javax.swing.JDialog {
         this.controlador.botonEditar(evt);
     }//GEN-LAST:event_botonEditarActionPerformed
 
-    private void campoBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoBusquedaActionPerformed
-        this.controlador.campoBusqueda(evt);
-    }//GEN-LAST:event_campoBusquedaActionPerformed
-
     private void botonNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaActionPerformed
         this.controlador.botonNueva(evt);
     }//GEN-LAST:event_botonNuevaActionPerformed
@@ -287,9 +279,7 @@ public class VentanaListaDeCompras extends javax.swing.JDialog {
     }
 
 
-    public static void main(String[] args) {
-        IControladorVentanaListaDeCompras controladorPrincipal = new ControladorVentanaListaDeCompras();
-    }
+    
     
     
 }

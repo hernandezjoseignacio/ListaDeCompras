@@ -13,7 +13,7 @@ import java.awt.event.KeyEvent;
  *
  * @author HERNANDEZ
  */
-public interface IControladorVentanaListaDeCompras {
+public interface IControladorListaDeCompras {
 
     public void campoBusquedaFocusGained(FocusEvent evt);
 
@@ -28,8 +28,6 @@ public interface IControladorVentanaListaDeCompras {
     public void botonBorrar(ActionEvent evt);
 
     public void botonNueva(ActionEvent evt);
-
-    public void campoBusqueda(ActionEvent evt);
 
     public void botonEditar(ActionEvent evt);
     
