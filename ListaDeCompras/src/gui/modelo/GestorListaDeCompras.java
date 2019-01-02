@@ -19,7 +19,7 @@ import java.util.List;
  * @author HERNANDEZ
  */
 public class GestorListaDeCompras implements IGestorListaDeCompras{
-    List<ListaDeCompras> listaDeCompras = new ArrayList<>();
+    List<Compra> listaDeCompras = new ArrayList<>();
     public static final String ARCHIVO = "./ListaDeCompras.txt";
     public static final char SEPARADOR = ';';
 
@@ -45,7 +45,7 @@ public class GestorListaDeCompras implements IGestorListaDeCompras{
                 String cadena;
                 while((cadena = br.readLine()) != null) {
                     String[] vector = cadena.split(Character.toString(SEPARADOR));
-                    ListaDeCompras unaCompra = new ListaDeCompras(vector[0], vector[1], Float.parseFloat(vector[2]));
+                    Compra unaCompra = new Compra(vector[0], vector[1], Float.parseFloat(vector[2]));
                     if(!this.listaDeCompras.contains(unaCompra))
                         this.listaDeCompras.add(unaCompra);
                 }
@@ -58,8 +58,8 @@ public class GestorListaDeCompras implements IGestorListaDeCompras{
     
     public void escribirArchivo() {
         try(FileWriter archivoListaDeCompras = new FileWriter(new File(ARCHIVO))) {     
-            for(ListaDeCompras i : this.listaDeCompras) {
-                String cadena = i.getCompra() + SEPARADOR + i.getAnotaciones() + SEPARADOR + i.getPrecio();
+            for(Compra i : this.listaDeCompras) {
+                String cadena = i.getUnaCompra() + SEPARADOR + i.getAnotaciones() + SEPARADOR + i.getPrecio();
                 archivoListaDeCompras.write(cadena);
                 archivoListaDeCompras.write("\n");
             }
@@ -73,7 +73,7 @@ public class GestorListaDeCompras implements IGestorListaDeCompras{
     @Override
     public String nuevaListaDeCompras(String compra, String unaAnotacion, float unPrecio) {
         if(compra!=null&&!compra.isEmpty()&&unaAnotacion!=null&&!unaAnotacion.isEmpty()&&unPrecio!=0.0){
-            ListaDeCompras unaCompra = new ListaDeCompras(compra, unaAnotacion, unPrecio);
+            Compra unaCompra = new Compra(compra, unaAnotacion, unPrecio);
             if(!this.listaDeCompras.contains(unaCompra)){
                 this.listaDeCompras.add(unaCompra);
                 this.escribirArchivo();
@@ -85,10 +85,10 @@ public class GestorListaDeCompras implements IGestorListaDeCompras{
     }
     
     @Override
-    public ListaDeCompras dameUnaCompra(String compra) {
+    public Compra dameUnaCompra(String compra) {
         if(compra!=null&&!compra.isEmpty()){
-            for(ListaDeCompras i: this.listaDeCompras){
-                if(i.getCompra().contains(compra))
+            for(Compra i: this.listaDeCompras){
+                if(i.getUnaCompra().contains(compra))
                     return i;
             }
         }
@@ -96,11 +96,11 @@ public class GestorListaDeCompras implements IGestorListaDeCompras{
     }
 
     @Override
-    public List<ListaDeCompras> buscarUnaCompra(String compra) {
+    public List<Compra> buscarUnaCompra(String compra) {
         if(compra!=null){
-            List<ListaDeCompras> lista = new ArrayList<>();
-            for(ListaDeCompras i: this.listaDeCompras){
-                if(i.getCompra().toLowerCase().contains(compra))
+            List<Compra> lista = new ArrayList<>();
+            for(Compra i: this.listaDeCompras){
+                if(i.getUnaCompra().toLowerCase().contains(compra))
                    lista.add(i);
             }
         return lista;
@@ -109,7 +109,7 @@ public class GestorListaDeCompras implements IGestorListaDeCompras{
     }
 
     @Override
-    public String borrarUnaCompra(ListaDeCompras unaCompra) {
+    public String borrarUnaCompra(Compra unaCompra) {
         if(unaCompra!=null){
             if(this.listaDeCompras.contains(unaCompra)){
                 this.listaDeCompras.remove(unaCompra);
@@ -122,11 +122,11 @@ public class GestorListaDeCompras implements IGestorListaDeCompras{
     }
 
     @Override
-    public String modificarUnaCompra(ListaDeCompras unaCompra, String compra, String unaAnotacion, float unPrecio){
+    public String modificarUnaCompra(Compra unaCompra, String compra, String unaAnotacion, float unPrecio){
         if(unaCompra!=null&&compra!=null&&!compra.isEmpty()){
-            for(ListaDeCompras i:this.listaDeCompras){
+            for(Compra i:this.listaDeCompras){
                 if(i.equals(unaCompra)){
-                    i.setCompra(compra);
+                    i.setUnaCompra(compra);
                     i.setAnotaciones(unaAnotacion);
                     i.setPrecio(unPrecio);
                     this.escribirArchivo();
